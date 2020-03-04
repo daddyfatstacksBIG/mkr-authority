@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-[[ "$ETH_RPC_URL" && "$(seth chain)" == "ethlive" ]] || { echo "Please set a mainnet ETH_RPC_URL"; exit 1; }
+[[ "$ETH_RPC_URL" && "$(seth chain)" == "ethlive" ]] || {
+  echo "Please set a mainnet ETH_RPC_URL"
+  exit 1
+}
 
 dapp --use solc:0.5.12 build
 export DAPP_TEST_ADDRESS=0x8EE7D9235e01e6B42345120b5d270bdB763624C7
